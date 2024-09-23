@@ -66,7 +66,7 @@ donationBtn.addEventListener("click", function () {
 historyBtn.addEventListener("click", function () {
   const donationPage = document.getElementById("donation-section");
   donationPage.classList.add("hidden");
-  hirtoryList.classList.remove('hidden');
+  hirtoryList.classList.remove('hidden')
   btnColorChange(historyBtn);
   donationBtn.style.backgroundColor = "";
   donationBtn.classList.remove("bg-[#B4F461]");

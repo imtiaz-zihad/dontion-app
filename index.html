@@ -23,20 +23,20 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <nav class="sticky top-0 bg-slate-500">
+    <nav class="sticky top-0 bg-slate-500 lg:w-full w-5/6 mx-auto">
       <!-- Nav Top -->
       <div class="bg-[#F9F7F3]">
-        <div class="flex justify-between items-center px-8 py-10 mx-auto w-5/6">
+        <div class="lg:flex p-2 lg:justify-between text-center items-center lg:px-8 lg:py-10  lg:w-5/6 lg:mx-auto w-full m-1 lg:m-0">
           <div>
             <button id="blog-btn" class="btn font-bold bg-[#B4F461]">
               Blog
             </button>
           </div>
-          <div class="flex items-center gap-5">
+          <div class="flex items-center sm:flex-row justify-center text-center gap-5">
             <img src="/assets/logo.png" alt="" />
             <p class="font-bold">Donate Bangladesh</p>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="flex items-center sm:flex-row justify-center  text-center    gap-2">
             <img src="/assets/coin.png" alt="" />
             <p id="mainAccountBalance" class="font-bold text-gray-500">500</p>
             <p class="font-bold text-gray-500">BDT</p>
@@ -44,7 +44,7 @@
         </div>
       </div>
       <!-- Nav Bottom -->
-      <div class="flex items-center w-1/12 mx-auto gap-6 mt-14">
+      <div class="flex items-center justify-center lg:w-1/12 w-1/2 mx-auto lg:mx-auto gap-6 mt-14">
         <button
           id="donation-btn"
           class="btn font-bold mb-11 bg-[#B4F461] border-none"
@@ -61,7 +61,7 @@
       <!-- for Nk -->
       <div class="w-5/6 mx-auto border-2 rounded-xl bg-white shadow mb-8">
         <!-- frame one -->
-        <div class="flex gap-9 justify-center m-7">
+        <div class="lg:flex gap-9 justify-center m-7">
           <!-- Box Left -->
           <div class="flex-1">
             <img class="w-full lg:h-96" src="/assets/noakhali.png" alt="" />
@@ -91,12 +91,12 @@
               id="nk-input-field"
               type="number"
               placeholder="Write Donation Amount"
-              class="input h-16 mt-2 mb-2 input-bordered w-4/5"
+              class="input h-16 mt-2 mb-2 input-bordered lg:w-4/5"
             /><br />
 
             <button
               id="nk-don-btn"
-              class="btn w-4/5 bg-[#B4F461] font-bold text-2xl h-16 items-center"
+              class="btn lg:w-4/5 bg-[#B4F461] font-bold text-2xl h-16 items-center"
             >
               Donate Now
             </button>
@@ -107,7 +107,7 @@
       <!-- for Feni -->
       <div class="w-5/6 mx-auto border-2 rounded-xl bg-white shadow mb-8">
         <!-- frame one -->
-        <div class="flex gap-9 justify-center m-7">
+        <div class="lg:flex gap-9 justify-center m-7">
           <!-- Box Left -->
           <div class="flex-1">
             <img class="w-full lg:h-96" src="/assets/feni.png" alt="" />
@@ -137,12 +137,12 @@
               id="feni-input-field"
               type="number"
               placeholder="Write Donation Amount"
-              class="input h-16 mt-2 mb-2 input-bordered w-4/5"
+              class="input h-16 mt-2 mb-2 input-bordered w-full lg:w-4/5"
             /><br />
 
             <button
               id="feni-don-btn"
-              class="btn w-4/5 bg-[#B4F461] font-bold text-2xl h-16 items-center"
+              class="btn lg:w-4/5 w-full bg-[#B4F461] font-bold text-2xl h-16 items-center"
             >
               Donate Now
             </button>
@@ -153,7 +153,7 @@
       <!-- for Quota -->
       <div class="w-5/6 mx-auto border-2 rounded-xl bg-white shadow mb-8">
         <!-- frame one -->
-        <div class="flex gap-9 justify-center m-7">
+        <div class="lg:flex gap-9 justify-center m-7">
           <!-- Box Left -->
           <div class="flex-1">
             <img
@@ -187,12 +187,12 @@
               id="qo-input-field"
               type="number"
               placeholder="Write Donation Amount"
-              class="input h-16 mt-2 mb-2 input-bordered w-4/5"
+              class="input h-16 mt-2 mb-2 input-bordered lg:w-4/5"
             /><br />
 
             <button
               id="qo-don-btn"
-              class="btn w-4/5 bg-[#B4F461] font-bold text-2xl h-16 items-center"
+              class="btn lg:w-4/5 bg-[#B4F461] font-bold text-2xl h-16 items-center"
             >
               Donate Now
             </button>
