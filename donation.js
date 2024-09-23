@@ -15,11 +15,7 @@ const qoTotalAmountEl = document.getElementById("qo-total-amount");
 
 ///show modal
 
-
-
-
-//
-function updateDateTime() {
+ function updateDateTime(timeId) {
     const now = new Date();
     const options = {
       year: 'numeric',
@@ -32,8 +28,14 @@ function updateDateTime() {
     };
     
     const formattedDateTime = now.toLocaleString('en-US', options);
-    document.getElementById("time-section").innerText = formattedDateTime;
+    
+    // Update the time section of the transaction
+    document.getElementById(timeId).innerText = formattedDateTime;
   }
+  
+
+
+
 
 const mainAccountBalanceEl = document.getElementById("mainAccountBalance");
 
@@ -53,6 +55,8 @@ const donationBtn = document.getElementById("donation-btn");
 
 const historyBtn = document.getElementById("history-btn");
 
+const hirtoryList = document.getElementById('historty-list')
+
 donationBtn.addEventListener("click", function () {
   const donationPage = document.getElementById("donation-section");
   donationPage.classList.remove("hidden");
@@ -62,52 +66,62 @@ donationBtn.addEventListener("click", function () {
 historyBtn.addEventListener("click", function () {
   const donationPage = document.getElementById("donation-section");
   donationPage.classList.add("hidden");
+  hirtoryList.classList.remove('hidden');
   btnColorChange(historyBtn);
   donationBtn.style.backgroundColor = "";
   donationBtn.classList.remove("bg-[#B4F461]");
 });
 
 // Nk money added
+
+
 nkdonbtnEl.addEventListener("click", function () {
-  const nkinputvalue = parseFloat(nkInputFieldEl.value);
-
-  // Check if the input is a valid number
-  if (!isNaN(nkinputvalue) && nkinputvalue > 0) {
-    if (parseFloat(mainAccountBalanceEl.innerText) <= 0) {
-      alert("Balance finished");
+    const nkinputvalue = parseFloat(nkInputFieldEl.value);
+  
+    // Check if the input is a valid number
+    if (!isNaN(nkinputvalue) && nkinputvalue > 0) {
+      if (parseFloat(mainAccountBalanceEl.innerText) <= 0) {
+        alert("Balance finished");
+      } else {
+        // Add money to nkTotalAmountEl
+        const amoutNk = parseFloat(nkTotalAmountEl.innerText);
+        const newamountNk = amoutNk + nkinputvalue;
+        nkTotalAmountEl.innerText = newamountNk;
+  
+        // Decrease the main account balance
+        const totalaccountBalance = parseFloat(mainAccountBalanceEl.innerText);
+        const newtotalaccountBalance = totalaccountBalance - nkinputvalue;
+        mainAccountBalanceEl.innerText = newtotalaccountBalance;
+  
+        
+        const timeId = `time-section-${Date.now()}`;
+  
+        //  Transaction money
+        const transactionBalance = document.getElementById("historty-list");
+        transactionBalance.innerHTML += `
+         <div
+            class="flex space-x-4 bg-red-500 p-5 text-black font-bold shadow rounded-lg border-2 text-2xl gap-3 mb-5"
+          >
+           <h2>  <span >${nkinputvalue} </span> </h2>
+  
+          <h2><span> Taka donated for Famine-2024 at Noakhali, Bangladesh</span></h2>
+            <p>Date:</p>
+            <p id="${timeId}">0</p>
+          </div>
+        `;
+  
+        // Show the modal
+        const modelShow = document.getElementById('my_modal_2');
+        modelShow.showModal();
+  
+        
+        updateDateTime(timeId);
+      }
     } else {
-      // Add money to nkTotalAmountEl
-      const amoutNk = parseFloat(nkTotalAmountEl.innerText);
-      const newamountNk = amoutNk + nkinputvalue;
-      nkTotalAmountEl.innerText = newamountNk;
-
-      // Decrease the main account balance
-      const totalaccountBalance = parseFloat(mainAccountBalanceEl.innerText);
-      const newtotalaccountBalance = totalaccountBalance - nkinputvalue;
-      mainAccountBalanceEl.innerText = newtotalaccountBalance;
-
-    //  transaction money
-      const transactionBalance = document.getElementById("trans-balance");
-      transactionBalance.innerHTML = nkinputvalue;
-      console.log(transactionBalance.innerHTML);
-      
-
-      
-
-      const modelShow = document.getElementById('my_modal_2');
-      modelShow.showModal();
-      
-
-      
-
-      // real time added
-      updateDateTime();
+      alert("Please provide a valid donation amount.");
     }
-  } else {
-    alert("Please provide a valid donation amount.");
-  }
-});
-
+  });
+  
 //Feni money added
 fenidonbtnEl.addEventListener("click", function () {
   const feniinputvalue = parseFloat(feniInputFieldEl.value);
@@ -127,8 +141,28 @@ fenidonbtnEl.addEventListener("click", function () {
       const newtotalaccountBalance = totalaccountBalance - feniinputvalue;
       mainAccountBalanceEl.innerText = newtotalaccountBalance;
 
-      const modelShow = document.getElementById('my_modal_2');
-      modelShow.showModal();
+      const timeId = `time-section-${Date.now()}`;
+  
+        //  Transaction money
+        const transactionBalance = document.getElementById("historty-list");
+        transactionBalance.innerHTML += `
+         <div
+            class="flex space-x-4 bg-red-500 p-5 text-black font-bold shadow rounded-lg border-2 text-2xl gap-3 mb-5"
+          >
+           <h2>  <span >${feniinputvalue} </span> </h2>
+  
+          <h2><span> Taka donated for Food-2024 at Feni, Bangladesh</span></h2>
+            <p>Date:</p>
+            <p id="${timeId}">0</p>
+          </div>
+        `;
+  
+        // Show the modal
+        const modelShow = document.getElementById('my_modal_2');
+        modelShow.showModal();
+  
+        
+        updateDateTime(timeId);
       
     }
   } else {
@@ -154,8 +188,28 @@ qodonbtnEl.addEventListener("click", function () {
       const newtotalaccountBalance = totalaccountBalance - qoinputvalue;
       mainAccountBalanceEl.innerText = newtotalaccountBalance;
 
-      const modelShow = document.getElementById('my_modal_2');
-      modelShow.showModal();
+      const timeId = `time-section-${Date.now()}`;
+  
+        //  Transaction money
+        const transactionBalance = document.getElementById("historty-list");
+        transactionBalance.innerHTML += `
+         <div
+            class="flex space-x-4 bg-red-500 p-5 text-black font-bold shadow rounded-lg border-2 text-2xl gap-3 mb-5"
+          >
+           <h2>  <span >${qoinputvalue} </span> </h2>
+  
+          <h2><span> Taka donated for Quota injure-2024 , Bangladesh</span></h2>
+            <p>Date:</p>
+            <p id="${timeId}">0</p>
+          </div>
+        `;
+  
+        // Show the modal
+        const modelShow = document.getElementById('my_modal_2');
+        modelShow.showModal();
+  
+        
+        updateDateTime(timeId);
       
     }
   } else {
