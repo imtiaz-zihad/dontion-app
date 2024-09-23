@@ -88,7 +88,11 @@ nkdonbtnEl.addEventListener("click", function () {
 
     //  transaction money
       const transactionBalance = document.getElementById("trans-balance");
-      transactionBalance.innerText = nkinputvalue;
+      transactionBalance.innerHTML = nkinputvalue;
+      console.log(transactionBalance.innerHTML);
+      
+
+      
 
       const modelShow = document.getElementById('my_modal_2');
       modelShow.showModal();
